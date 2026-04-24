@@ -159,6 +159,10 @@
     to { transform: rotate(360deg); }
   }
 
+  canvas#wheel, .center-orb {
+    touch-action: manipulation;
+  }
+
   canvas#wheel {
     width: 100%;
     height: 100%;
@@ -504,13 +508,30 @@
     .app {
       grid-template-columns: 1fr;
       grid-template-rows: auto auto auto;
-      padding: 1rem;
+      padding: 1rem 0.75rem;
+      gap: 0;
     }
+    header { padding: 1.25rem 0 1.5rem; }
+    h1 { font-size: clamp(1.1rem, 5vw, 1.6rem); }
+    .subtitle { font-size: 0.65rem; letter-spacing: 0.2em; }
+    .wheel-area { padding: 0.5rem 0.5rem 1.5rem; gap: 1.25rem; }
+    .wheel-wrap { width: min(300px, 85vw); height: min(300px, 85vw); }
+    .spin-btn { font-size: 0.65rem; padding: 0.75rem 1.75rem; letter-spacing: 0.1em; }
+    .result-display { font-size: 1.15rem; }
     .sidebar {
       border-left: none;
       border-top: 1px solid rgba(139,92,246,0.15);
-      padding: 1.5rem 0 0;
+      padding: 1.5rem 0.25rem 2rem;
     }
+    .options-list { max-height: 180px; }
+    .history-list { max-height: 110px; }
+    .mode-btn { padding: 0.55rem 0.5rem; font-size: 0.7rem; }
+  }
+
+  @media (max-width: 380px) {
+    .wheel-wrap { width: 90vw; height: 90vw; }
+    h1 { font-size: 1rem; }
+    .spin-btn { font-size: 0.6rem; padding: 0.65rem 1.25rem; }
   }
 </style>
 </head>
@@ -528,7 +549,7 @@
       <canvas id="wheel" width="500" height="500"></canvas>
       <div class="center-orb" id="centerOrb" title="spin">✦</div>
     </div>
-    <button class="spin-btn" id="spinBtn">✦ &nbsp;Nothing is random&nbsp; ✦</button>
+    <button class="spin-btn" id="spinBtn">✦ &nbsp; CONSULT THE COSMOS &nbsp; ✦</button>
     <div class="result-display" id="resultDisplay">
       <div id="resultText"></div>
       <div class="result-glyph" id="resultGlyph"></div>
